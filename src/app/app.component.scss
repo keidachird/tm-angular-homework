@@ -1,0 +1,11 @@
+.container {
+  max-width: 120rem;
+  padding-inline: 3rem;
+  margin-inline: auto;
+}
+
+.user-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 2rem;
+}

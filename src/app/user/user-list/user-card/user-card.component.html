@@ -1,0 +1,23 @@
+<mat-card class="user-card">
+  <mat-checkbox class="user-card__checkbox"></mat-checkbox>
+
+  <mat-card-title class="user-card__name">
+    {{ user.firstName }} {{ user.lastName }}
+  </mat-card-title>
+
+  <img
+    mat-card-image
+    class="user-card__image"
+    [src]="user.imageUrl"
+    alt="{{ user.firstName }} {{ user.lastName }} image"
+  />
+
+  <mat-card-content class="user-card__content">
+    <p class="user-card__contact">
+      <mat-icon>email</mat-icon> {{ user.email }}
+    </p>
+    <p class="user-card__contact">
+      <mat-icon>phone</mat-icon> {{ user.phone }}
+    </p>
+  </mat-card-content>
+</mat-card>

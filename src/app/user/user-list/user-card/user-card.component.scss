@@ -1,0 +1,39 @@
+.user-card {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__checkbox {
+    padding: 0;
+    margin-left: auto;
+  }
+
+  &__name {
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  &__image {
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1rem;
+  }
+
+  &__content {
+    font-family: inherit;
+    font-weight: 700;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__contact {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
