@@ -57,5 +57,15 @@ export class UserListComponent implements OnInit {
       )
       this.selectedUserIds = []
     })
+
+    this.userService.sort.subscribe(sortOrder => {
+      this.users = this.users.sort((a, b) => {
+        const order = sortOrder === 'asc' ? 1 : -1
+        return (
+          order *
+          a.firstName.toLowerCase().localeCompare(b.firstName.toLowerCase())
+        )
+      })
+    })
   }
 }

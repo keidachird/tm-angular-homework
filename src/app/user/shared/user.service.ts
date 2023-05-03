@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
-import { User, UserDto } from './user'
+import { SortOrder, User, UserDto } from './user'
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +14,7 @@ export class UserService {
   selectAllUsers = new EventEmitter<boolean>()
   allSelected = new EventEmitter<boolean>()
   deleteSelected = new EventEmitter<void>()
+  sort = new EventEmitter<SortOrder>()
 
   constructor(private http: HttpClient) {}
 

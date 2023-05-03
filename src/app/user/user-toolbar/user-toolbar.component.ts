@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core'
 import { UserService } from '../shared/user.service'
+import { SortOrder } from '../shared/user'
 
 @Component({
   selector: 'app-user-toolbar',
@@ -8,6 +9,7 @@ import { UserService } from '../shared/user.service'
 })
 export class UserToolbarComponent implements OnInit {
   isAllSelected!: boolean
+  sortOrder: SortOrder | undefined
 
   constructor(private userService: UserService) {
     this.userService.allSelected.subscribe(isAllSelected => {
@@ -23,5 +25,9 @@ export class UserToolbarComponent implements OnInit {
 
   onDeleteSelected = (): void => {
     this.userService.deleteSelected.emit()
+  }
+
+  onSort = (): void => {
+    this.userService.sort.emit(this.sortOrder)
   }
 }

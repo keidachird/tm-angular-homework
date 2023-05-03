@@ -22,8 +22,8 @@
   </mat-form-field>
 
   <mat-form-field class="user-toolbar__sort" appearance="outline">
-    <mat-label>Sorting order</mat-label>
-    <mat-select>
+    <mat-label>Sort by</mat-label>
+    <mat-select [(ngModel)]="sortOrder" (selectionChange)="onSort()">
       <mat-option value="asc">Ascending</mat-option>
       <mat-option value="desc">Descending</mat-option>
     </mat-select>
