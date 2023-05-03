@@ -18,7 +18,7 @@
 
   <mat-form-field class="user-toolbar__search" appearance="outline">
     <mat-label>Search</mat-label>
-    <input matInput />
+    <input matInput [(ngModel)]="searchText" (input)="onSearch()" />
   </mat-form-field>
 
   <mat-form-field class="user-toolbar__sort" appearance="outline">

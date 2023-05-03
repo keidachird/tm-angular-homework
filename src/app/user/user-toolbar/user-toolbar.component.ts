@@ -8,8 +8,9 @@ import { SortOrder } from '../shared/user'
   styleUrls: ['./user-toolbar.component.scss'],
 })
 export class UserToolbarComponent implements OnInit {
-  isAllSelected!: boolean
+  isAllSelected = false
   sortOrder: SortOrder | undefined
+  searchText = ''
 
   constructor(private userService: UserService) {
     this.userService.allSelected.subscribe(isAllSelected => {
@@ -29,5 +30,9 @@ export class UserToolbarComponent implements OnInit {
 
   onSort = (): void => {
     this.userService.sort.emit(this.sortOrder)
+  }
+
+  onSearch = (): void => {
+    this.userService.search.emit(this.searchText)
   }
 }

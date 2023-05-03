@@ -15,9 +15,15 @@ import { MatSelectModule } from '@angular/material/select'
 import { UserToolbarComponent } from './user-toolbar/user-toolbar.component'
 import { UserListComponent } from './user-list/user-list.component'
 import { UserCardComponent } from './user-list/user-card/user-card.component'
+import { SearchFilterPipe } from './shared/search-filter.pipe'
 
 @NgModule({
-  declarations: [UserCardComponent, UserListComponent, UserToolbarComponent],
+  declarations: [
+    UserCardComponent,
+    UserListComponent,
+    UserToolbarComponent,
+    SearchFilterPipe,
+  ],
   imports: [
     CommonModule,
     FormsModule,

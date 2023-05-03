@@ -15,6 +15,7 @@ export class UserService {
   allSelected = new EventEmitter<boolean>()
   deleteSelected = new EventEmitter<void>()
   sort = new EventEmitter<SortOrder>()
+  search = new EventEmitter<string>()
 
   constructor(private http: HttpClient) {}
 

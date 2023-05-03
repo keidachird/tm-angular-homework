@@ -11,6 +11,7 @@ import { map } from 'rxjs'
 export class UserListComponent implements OnInit {
   users: User[] = []
   selectedUserIds: number[] = []
+  searchText = ''
 
   constructor(private userService: UserService) {}
 
@@ -59,7 +60,7 @@ export class UserListComponent implements OnInit {
     })
 
     this.userService.sort.subscribe(sortOrder => {
-      this.users = this.users.sort((a, b) => {
+      this.users = [...this.users].sort((a, b) => {
         const order = sortOrder === 'asc' ? 1 : -1
         return (
           order *
@@ -67,5 +68,9 @@ export class UserListComponent implements OnInit {
         )
       })
     })
+
+    this.userService.search.subscribe(
+      searchText => (this.searchText = searchText)
+    )
   }
 }
