@@ -1,0 +1,22 @@
+.header-toolbar {
+  display: flex;
+  gap: 4rem;
+}
+
+.header-title {
+  font-size: 3.2rem;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+
+  &__link {
+    font-size: 1.6rem;
+    padding: 2rem;
+  }
+
+  .active {
+    background-color: #343434;
+  }
+}

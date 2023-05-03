@@ -1,1 +1,21 @@
-<p>header works!</p>
+<mat-toolbar class="header-toolbar">
+  <h2 class="header-title">Angular homework</h2>
+  <nav class="nav">
+    <a
+      mat-stroked-button
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="nav__link"
+      >First part</a
+    >
+
+    <a
+      mat-stroked-button
+      routerLink="/part-two"
+      routerLinkActive="active"
+      class="nav__link"
+      >Second part</a
+    >
+  </nav>
+</mat-toolbar>

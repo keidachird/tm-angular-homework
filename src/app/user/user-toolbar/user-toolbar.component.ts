@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { UserService } from '../shared/user.service'
 import { SortOrder } from '../shared/user'
 import { MatDialog } from '@angular/material/dialog'
@@ -10,6 +10,8 @@ import { CreateUserModalComponent } from '../create-user-modal/create-user-modal
   styleUrls: ['./user-toolbar.component.scss'],
 })
 export class UserToolbarComponent implements OnInit {
+  @Input() allowCreateUser!: boolean
+
   isAllSelected = false
   sortOrder: SortOrder | undefined
   searchText = ''
