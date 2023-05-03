@@ -1,0 +1,21 @@
+.user-toolbar {
+  height: fit-content;
+  padding: 1rem;
+
+  display: flex;
+  align-items: center;
+
+  &__delete {
+    padding: 2rem;
+    margin-left: 2rem;
+  }
+
+  &__search,
+  &__sort {
+    margin-left: auto;
+  }
+
+  &__search {
+    width: 50rem;
+  }
+}

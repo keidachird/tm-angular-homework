@@ -1,5 +1,10 @@
 <mat-card class="user-card">
-  <mat-checkbox class="user-card__checkbox"></mat-checkbox>
+  <mat-checkbox
+    class="user-card__checkbox"
+    color="primary"
+    [(ngModel)]="isSelected"
+    (change)="onSelectToogle()"
+  ></mat-checkbox>
 
   <mat-card-title class="user-card__name">
     {{ user.firstName }} {{ user.lastName }}

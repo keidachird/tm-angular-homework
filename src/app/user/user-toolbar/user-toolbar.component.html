@@ -1,1 +1,26 @@
-<p>user-toolbar works!</p>
+<mat-toolbar class="user-toolbar">
+  <mat-checkbox
+    class="user-toolbar__checkbox"
+    color="primary"
+    [(ngModel)]="isAllSelected"
+    (click)="onSelectAll()"
+    >Select all</mat-checkbox
+  >
+
+  <button mat-stroked-button color="warn" class="user-toolbar__delete">
+    Delete
+  </button>
+
+  <mat-form-field class="user-toolbar__search" appearance="outline">
+    <mat-label>Search</mat-label>
+    <input matInput />
+  </mat-form-field>
+
+  <mat-form-field class="user-toolbar__sort" appearance="outline">
+    <mat-label>Sorting order</mat-label>
+    <mat-select>
+      <mat-option value="asc">Ascending</mat-option>
+      <mat-option value="desc">Descending</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-toolbar>

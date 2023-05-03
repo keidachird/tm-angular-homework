@@ -10,6 +10,7 @@ import { map } from 'rxjs'
 })
 export class UserListComponent implements OnInit {
   users: User[] = []
+  selectedUserIds: number[] = []
 
   constructor(private userService: UserService) {}
 
@@ -29,5 +30,22 @@ export class UserListComponent implements OnInit {
         )
       )
       .subscribe(users => (this.users = users))
+
+    this.userService.selectUser.subscribe(userId => {
+      const index = this.selectedUserIds.indexOf(userId)
+      index === -1
+        ? this.selectedUserIds.push(userId)
+        : this.selectedUserIds.splice(index, 1)
+
+      this.selectedUserIds.length === this.users.length
+        ? this.userService.allSelected.emit(true)
+        : this.userService.allSelected.emit(false)
+    })
+
+    this.userService.selectAllUsers.subscribe(isAllSelected => {
+      isAllSelected
+        ? (this.selectedUserIds = this.users.map(user => user.id))
+        : (this.selectedUserIds = [])
+    })
   }
 }
