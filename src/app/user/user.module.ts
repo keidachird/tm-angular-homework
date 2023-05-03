@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { MatCardModule } from '@angular/material/card'
 import { MatFormFieldModule } from '@angular/material/form-field'
@@ -11,11 +11,13 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatIconModule } from '@angular/material/icon'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatSelectModule } from '@angular/material/select'
+import { MatDialogModule } from '@angular/material/dialog'
 
 import { UserToolbarComponent } from './user-toolbar/user-toolbar.component'
 import { UserListComponent } from './user-list/user-list.component'
 import { UserCardComponent } from './user-list/user-card/user-card.component'
 import { SearchFilterPipe } from './shared/search-filter.pipe'
+import { CreateUserModalComponent } from './create-user-modal/create-user-modal.component'
 
 @NgModule({
   declarations: [
@@ -23,10 +25,12 @@ import { SearchFilterPipe } from './shared/search-filter.pipe'
     UserListComponent,
     UserToolbarComponent,
     SearchFilterPipe,
+    CreateUserModalComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
@@ -36,6 +40,7 @@ import { SearchFilterPipe } from './shared/search-filter.pipe'
     MatIconModule,
     MatToolbarModule,
     MatSelectModule,
+    MatDialogModule,
   ],
   exports: [UserCardComponent, UserListComponent, UserToolbarComponent],
 })

@@ -1,0 +1,53 @@
+<h4>Create user</h4>
+
+<form class="form" [formGroup]="createUserForm" (submit)="onSubmit()">
+  <mat-dialog-content class="form__content">
+    <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input type="text" matInput formControlName="firstName" />
+      <mat-icon matSuffix>person</mat-icon>
+      <mat-error>Firstname should be at least 2 charachters</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Last name</mat-label>
+      <input type="text" matInput formControlName="lastName" />
+      <mat-icon matSuffix>person</mat-icon>
+      <mat-error>Last should be between 2 an 60 charachters</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email" />
+      <mat-icon matSuffix>email</mat-icon>
+      <mat-error>Must be a valid email adress</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Phone</mat-label>
+      <input type="number" matInput formControlName="phone" />
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-error>Must contain only numbers</mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="form__actions">
+    <button
+      mat-stroked-button
+      type="submit"
+      color="accent"
+      [disabled]="!createUserForm.valid"
+      class="form__create-btn"
+    >
+      Create
+    </button>
+    <button
+      mat-stroked-button
+      mat-dialog-close
+      color="warn"
+      class="form__cancel-btn"
+    >
+      Cancel
+    </button>
+  </mat-dialog-actions>
+</form>

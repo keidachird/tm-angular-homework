@@ -1,6 +1,8 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core'
 import { UserService } from '../shared/user.service'
 import { SortOrder } from '../shared/user'
+import { MatDialog } from '@angular/material/dialog'
+import { CreateUserModalComponent } from '../create-user-modal/create-user-modal.component'
 
 @Component({
   selector: 'app-user-toolbar',
@@ -12,7 +14,7 @@ export class UserToolbarComponent implements OnInit {
   sortOrder: SortOrder | undefined
   searchText = ''
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private dialog: MatDialog) {
     this.userService.allSelected.subscribe(isAllSelected => {
       this.isAllSelected = isAllSelected
     })
@@ -34,5 +36,9 @@ export class UserToolbarComponent implements OnInit {
 
   onSearch = (): void => {
     this.userService.search.emit(this.searchText)
+  }
+
+  openModal = (): void => {
+    const dialogRef = this.dialog.open(CreateUserModalComponent)
   }
 }

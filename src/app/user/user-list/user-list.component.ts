@@ -72,5 +72,22 @@ export class UserListComponent implements OnInit {
     this.userService.search.subscribe(
       searchText => (this.searchText = searchText)
     )
+
+    this.userService.create.subscribe(user => {
+      this.users.push({
+        firstName: user.firstName!,
+        lastName: user.lastName!,
+        email: user.email!.toLowerCase(),
+        phone: user.phone!,
+        id:
+          1 +
+          this.users.reduce(
+            (maxId, user) => (maxId = Math.max(maxId, user.id)),
+            this.users[0].id
+          ),
+        imageUrl: `${this.userService.IMG_API_URL}/${JSON.stringify(user)}`,
+      })
+      this.users = [...this.users]
+    })
   }
 }

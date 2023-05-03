@@ -1,11 +1,13 @@
 <mat-toolbar class="user-toolbar">
-  <mat-checkbox
-    class="user-toolbar__checkbox"
-    color="primary"
-    [(ngModel)]="isAllSelected"
-    (click)="onSelectAll()"
-    >Select all</mat-checkbox
+  <button
+    mat-stroked-button
+    color="accent"
+    class="user-toolbar__add"
+    (click)="openModal()"
   >
+    Add user
+    <mat-icon iconPositionEnd class="user-toolbar__icon">person_add</mat-icon>
+  </button>
 
   <button
     mat-stroked-button
@@ -13,8 +15,17 @@
     class="user-toolbar__delete"
     (click)="onDeleteSelected()"
   >
-    Delete
+    Delete selected
+    <mat-icon iconPositionEnd class="user-toolbar__icon">delete</mat-icon>
   </button>
+
+  <mat-checkbox
+    class="user-toolbar__checkbox"
+    color="primary"
+    [(ngModel)]="isAllSelected"
+    (click)="onSelectAll()"
+    >Select all</mat-checkbox
+  >
 
   <mat-form-field class="user-toolbar__search" appearance="outline">
     <mat-label>Search</mat-label>

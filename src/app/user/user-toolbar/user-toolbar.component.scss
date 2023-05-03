@@ -1,18 +1,32 @@
 .user-toolbar {
   height: fit-content;
-  padding: 1rem;
+  padding: 2rem;
 
   display: flex;
   align-items: center;
 
-  &__delete {
+  &__icon.mat-icon {
+    font-size: 2rem;
+    width: fit-content;
+    height: fit-content;
+  }
+
+  &__add,
+  &__delete,
+  &__checkbox {
+    font-size: 1.6rem;
     padding: 2rem;
+  }
+
+  &__delete,
+  &__checkbox {
     margin-left: 2rem;
   }
 
   &__search,
   &__sort {
     margin-left: auto;
+    margin-bottom: -2rem;
   }
 
   &__search {

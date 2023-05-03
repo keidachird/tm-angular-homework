@@ -14,6 +14,7 @@ export class UserService {
   selectAllUsers = new EventEmitter<boolean>()
   allSelected = new EventEmitter<boolean>()
   deleteSelected = new EventEmitter<void>()
+  create = new EventEmitter<Partial<User>>()
   sort = new EventEmitter<SortOrder>()
   search = new EventEmitter<string>()
 
@@ -25,5 +26,9 @@ export class UserService {
 
   deleteUser = (id: number): Observable<UserDto> => {
     return this.http.delete<UserDto>(`${this.USER_API_URL}/${id}`)
+  }
+
+  createUser(user: Partial<User>): Observable<Partial<User>> {
+    return this.http.post(this.USER_API_URL, user)
   }
 }
