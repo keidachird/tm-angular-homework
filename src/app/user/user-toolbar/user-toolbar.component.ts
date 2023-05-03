@@ -20,4 +20,8 @@ export class UserToolbarComponent implements OnInit {
   onSelectAll = (): void => {
     this.userService.selectAllUsers.emit(this.isAllSelected)
   }
+
+  onDeleteSelected = (): void => {
+    this.userService.deleteSelected.emit()
+  }
 }

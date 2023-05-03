@@ -13,10 +13,15 @@ export class UserService {
   selectUser = new EventEmitter<number>()
   selectAllUsers = new EventEmitter<boolean>()
   allSelected = new EventEmitter<boolean>()
+  deleteSelected = new EventEmitter<void>()
 
   constructor(private http: HttpClient) {}
 
   getUsers = (): Observable<UserDto[]> => {
     return this.http.get<UserDto[]>(this.USER_API_URL)
+  }
+
+  deleteUser = (id: number): Observable<UserDto> => {
+    return this.http.delete<UserDto>(`${this.USER_API_URL}/${id}`)
   }
 }

@@ -47,5 +47,15 @@ export class UserListComponent implements OnInit {
         ? (this.selectedUserIds = this.users.map(user => user.id))
         : (this.selectedUserIds = [])
     })
+
+    this.userService.deleteSelected.subscribe(() => {
+      this.users = this.users.filter(
+        user => !this.selectedUserIds.includes(user.id)
+      )
+      this.selectedUserIds.forEach(id =>
+        this.userService.deleteUser(id).subscribe()
+      )
+      this.selectedUserIds = []
+    })
   }
 }

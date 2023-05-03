@@ -7,7 +7,12 @@
     >Select all</mat-checkbox
   >
 
-  <button mat-stroked-button color="warn" class="user-toolbar__delete">
+  <button
+    mat-stroked-button
+    color="warn"
+    class="user-toolbar__delete"
+    (click)="onDeleteSelected()"
+  >
     Delete
   </button>
 
